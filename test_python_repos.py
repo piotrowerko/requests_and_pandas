@@ -7,7 +7,7 @@ class TestPythonRepos(unittest.TestCase):
     def test_status_code(self):
         """Test case of api response status code"""
         status = get_status()
-        self.assertEqual(status, 200)
+        self.assertEqual(status[0], 200)
 
 
 if __name__ == '__main__':

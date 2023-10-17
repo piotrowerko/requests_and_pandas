@@ -7,6 +7,7 @@
 import requests
 import pandas as pd
 # https://www.youtube.com/watch?v=zmdjNSmRXF4&list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS&index=2&ab_channel=CoreySchafer
+# https://ourcodingclub.github.io/tutorials/pandas-python-intro/
 
 def get_status():
     url = 'https://api.github.com/search/repositories?q=language:python&sort=stars&limit=0'
