@@ -1,0 +1,27 @@
+pakiet psycopg daje jedynie
+możliwość pisania komend SQL bezpośrednio
+w kodzie python.
+
+--------------------------------------------------------------------------------------------
+SQLAlchemy is a ORM, psycopg2 is a database driver. 
+These are completely different things: SQLAlchemy generates 
+SQL statements and psycopg2 sends SQL statements to the database. 
+SQLAlchemy depends on psycopg2 or other database drivers to communicate with the database!
+
+As a rather complex software layer SQLAlchemy does add some overhead 
+but it also is a huge boost to development speed, at least once you learned the library. 
+SQLAlchemy is an excellent library and will teach you the whole ORM concept, 
+but if you don't want to generate SQL statements to begin with then you don't want SQLAlchemy.
+--------------------------------------------------------------------------------------------
+
+
+Uwaga Pandas może bezpośrednio ściągać dane z SQL
+ale musi mieć zdefiniowany engine w zainstalowanym przez pip
+module SQLAlchemy
+!!!!!!!!!!!!!!!!!!!!!
+https://www.youtube.com/watch?v=beAQg-dugBI&ab_channel=AminBoutarfi
+!!!!!!!!!!!!!!!!!!!!!
+https://github.com/amineboutarfi/youtube_tutorials/tree/master/pandas_to_postgres
+!!!!!!!!!!!!!!!!!!!!!
+
+

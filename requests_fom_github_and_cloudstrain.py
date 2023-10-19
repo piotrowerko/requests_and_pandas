@@ -71,6 +71,9 @@ def eric_matthens_call_():
     return repo_dicts
 
 def cloud_strain_t_sect_save():
+    """
+    POST to CloudStrain with save of json
+    """
         url = 'https://django-civil-85.herokuapp.com/api/civil_calcs/t_sect_ben_reinf_withsave'
         headers={'Authorization': 'Token 75c716e4fabb1fc1c215a6c22d4fc6757fb7e3ea'}
         json={"title": "t_sect_no_11",
@@ -92,6 +95,9 @@ def cloud_strain_t_sect_save():
         return response.json()
 
 def cloud_strain_t_sect():
+    """
+    POST to CloudStrain without save of json
+    """
         url = 'https://django-civil-85.herokuapp.com/api/civil_calcs/t_sect_ben_reinf'
         json={
                 "name": "my first T cross sect.",
