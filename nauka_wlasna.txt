@@ -23,5 +23,5 @@ https://www.youtube.com/watch?v=beAQg-dugBI&ab_channel=AminBoutarfi
 !!!!!!!!!!!!!!!!!!!!!
 https://github.com/amineboutarfi/youtube_tutorials/tree/master/pandas_to_postgres
 !!!!!!!!!!!!!!!!!!!!!
-
+https://stackoverflow.com/questions/23103962/how-to-write-dataframe-to-postgres-table
 

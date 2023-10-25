@@ -6,6 +6,7 @@
 
 import requests
 import pandas as pd
+from sqlalchemy import create_engine
 # https://www.youtube.com/watch?v=zmdjNSmRXF4&list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS&index=2&ab_channel=CoreySchafer
 # https://ourcodingclub.github.io/tutorials/pandas-python-intro/
 
@@ -74,9 +75,9 @@ def cloud_strain_t_sect_save():
     """
     POST to CloudStrain with save of json
     """
-        url = 'https://django-civil-85.herokuapp.com/api/civil_calcs/t_sect_ben_reinf_withsave'
-        headers={'Authorization': 'Token 75c716e4fabb1fc1c215a6c22d4fc6757fb7e3ea'}
-        json={"title": "t_sect_no_11",
+    url = 'https://django-civil-85.herokuapp.com/api/civil_calcs/t_sect_ben_reinf_withsave'
+    headers={'Authorization': 'Token 75c716e4fabb1fc1c215a6c22d4fc6757fb7e3ea'}
+    json={"title": "t_sect_no_11",
               "the_input_json":{
                   "name": "my first T cross sect.",
                   "b": 0.5,
@@ -91,15 +92,15 @@ def cloud_strain_t_sect_save():
                   "fi_opp": 16,
                   "m_sd": 5000
                   }}
-        response = requests.post(url=url, headers=headers, json=json)
-        return response.json()
+    response = requests.post(url=url, headers=headers, json=json)
+    return response.json()
 
 def cloud_strain_t_sect():
     """
     POST to CloudStrain without save of json
     """
-        url = 'https://django-civil-85.herokuapp.com/api/civil_calcs/t_sect_ben_reinf'
-        json={
+    url = 'https://django-civil-85.herokuapp.com/api/civil_calcs/t_sect_ben_reinf'
+    json={
                 "name": "my first T cross sect.",
                 "b": 0.5,
                 "h": 1.2,
@@ -113,12 +114,15 @@ def cloud_strain_t_sect():
                 "fi_opp": 16,
                 "m_sd": 1
             }
-        response = requests.post(url=url, json=json)
-        return response.json()
+    response = requests.post(url=url, json=json)
+    return response.json()
 
 def to_pandas(_dict):
     ppp = {'a': 2}
     return pd.DataFrame(_dict)
 
 if __name__ == '__main__':
-    print(pd.DataFrame(cloud_strain_t_sect(), index=[0]))
+    res = cloud_strain_t_sect()
+    pio_df = pd.DataFrame(cloud_strain_t_sect(), index=[0])
+    engine = create_engine('postgresql://postgres:wiKOlan#o0_sql@localhost:5432/analysis')
+    pio_df.to_sql('bending_res_pd', engine)
